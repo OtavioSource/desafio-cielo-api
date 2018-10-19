@@ -25,6 +25,12 @@ public class LancamentoContaService {
 		
 		FileUtil fileUtil = new FileUtil();
 		String dados = fileUtil.getDadosArquivo();
+		
+		if(dados == null) {
+			log.info("Problema ao retornar os dados da leitura do arquivo.");
+			return null;
+		}
+		
 		ObjectMapper objectMapper = new ObjectMapper();
 		LancamentoContaLegado lancamentoConta = new LancamentoContaLegado();
 		
